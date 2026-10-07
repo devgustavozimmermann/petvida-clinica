@@ -3,7 +3,7 @@ Trabalho da disciplina de Design Profissional, professor Sedenilso Antonio Macha
 
 É um sistema web de agendamento e prontuário para a clínica veterinária PetVida.
 
-Link do site no GitHub Pages: 
+Link do site no GitHub Pages: [https://devgustavozimmermann.github.io/petvida-clinica/ ](https://devgustavozimmermann.github.io/petvida-clinica/)
 
 **Sobre a clínica**
 
