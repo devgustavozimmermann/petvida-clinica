@@ -1,98 +1,45 @@
-# PetVida Clínica - Sistema de Agendamento e Prontuário
+PetVida Clínica
+Trabalho da disciplina de Design Profissional, professor Sedenilso Antonio Machado. É um sistema web de agendamento e prontuário para a clínica veterinária PetVida.
+Link do site no GitHub Pages: 
+Sobre a clínica
+A PetVida é uma clínica veterinária e centro de estética pet de bairro, criada pelo Dr. Gabriel Santos e pela Dra. Camila Paes. Eles fazem consultas, vacinas, cirurgias pequenas, banho e tosa. A equipe tem os dois sócios, dois veterinários plantonistas, três tosadores e duas recepcionistas.
+O problema
+Hoje tudo é marcado numa agenda de papel na recepção. Com mais de 30 banhos por dia e consultas no mesmo horário, os horários acabam batendo uns nos outros. Os tutores esquecem a data do banho ou da vacina, e isso deixa buracos na agenda que ninguém consegue preencher a tempo. A recepção ainda perde tempo procurando o histórico dos animais em pastas de papel. A ideia do trabalho é juntar o cuidado estético com o histórico de saúde do pet.
 
-Trabalho da disciplina **Design Profissional - Produção de Portfólio & Desenvolvimento Empresarial** (Estudo de Caso 5, Prof. Sedenilso Antonio Machado).
+O problema está dentro da clínica, na recepção, O sistema abre em qualquer navegador, sem instalar nada, e a recepção, os veterinários e os tosadores usam a mesma tela. O contato com o tutor fica por conta dos lembretes, que no trabalho são só uma simulação de mensagem de WhatsApp.
+O que o sistema faz
+A agenda mostra veterinários e tosadores juntos, e não deixa marcar dois atendimentos para o mesmo profissional no mesmo horário, nem o mesmo pet em dois lugares ao mesmo tempo. Consulta, vacina e cirurgia só podem ser marcadas com veterinário, e banho e tosa só com tosador. Os horários vagos aparecem com o botão "+ livre", e clicar em um atendimento muda o status entre agendado, confirmado e concluído.
+Quando um atendimento é concluído ele entra sozinho no prontuário do pet, junto com as consultas e vacinas. Na tela de lembretes aparecem as vacinas e retornos que vencem em até 30 dias, com uma mensagem pronta para o tutor. Também tem cadastro de tutores e pets, uma tela da equipe e um dashboard com a ocupação dos profissionais, os horários livres e os lembretes que faltam enviar.
+Telas
+Dashboard:
+![Dashboard](docs/dashboard.png)
+Agenda, com o aviso de conflito de horário:
+![Agenda](docs/agenda.png)
+Tutores e pets:
+![Tutores e Pets](docs/cadastros.png)
+Prontuário:
+![Prontuário](docs/prontuario.png)
+Lembretes:
+![Lembretes](docs/lembretes.png)
+Equipe:
+![Equipe](docs/equipe.png)
 
-**Demonstração online:** _colocar aqui o link do GitHub Pages_
-
-## 1. A empresa
-A PetVida é uma clínica veterinária e centro de estética pet de bairro, fundada pelo Dr. Gabriel Santos e pela Dra. Camila Paes. Oferece consultas, vacinação, cirurgias de pequeno porte e banho e tosa. A equipe tem os 2 sócios, 2 veterinários plantonistas, 3 tosadores e 2 recepcionistas.
-
-## 2. Problema (briefing)
-Todo o agendamento é feito em uma agenda de papel na recepção. Com mais de 30 banhos por dia e consultas sobrepostas, aparecem estes problemas:
-
-| Problema | Consequência |
-|---|---|
-| Choque de horários | Atrasos e tutores insatisfeitos |
-| Tutores esquecem o banho ou a vacina | Horários vazios na agenda |
-| Histórico médico em pastas de papel | A recepção perde tempo procurando fichas |
-| Sem lembretes de retorno | Perda de receita e caixa imprevisível |
-
-A oportunidade é juntar o cuidado estético com o histórico de saúde do animal, o que é um diferencial em relação aos pet shops de rede.
-
-## 3. Solução escolhida e justificativa
-Escolhi fazer um **sistema (dashboard) web** de uso interno da clínica.
-
-- **Por que não um app de celular?** O problema está dentro da clínica (recepção, veterinários e tosadores). Um app precisaria ser instalado pelos tutores e publicado nas lojas, o que não cabe no prazo.
-- **Por que não um site institucional?** Um site divulga a clínica, mas não resolve choque de horário nem o histórico dos pets.
-- **Por que um sistema web?** Funciona em qualquer navegador, sem instalar nada, e a recepção, os veterinários e os tosadores usam a mesma tela. O contato com o tutor é feito pelos lembretes (simulados como mensagem de WhatsApp).
-
-## 4. Funcionalidades e o problema que cada uma resolve
-| Funcionalidade | Problema resolvido |
-|---|---|
-| Agenda única de veterinários e tosadores, com bloqueio de conflito | Choque de horários |
-| Botão "+ livre" nos horários vagos | Horários vazios |
-| Lembretes de vacinas e retornos, com mensagem pronta | Esquecimento dos tutores |
-| Prontuário com consultas, vacinas e banhos | Histórico demorado de achar |
-| Atendimento concluído vai sozinho para o prontuário | Junta estética e saúde |
-| Cadastro de tutores e pets | Dados organizados |
-| Dashboard com ocupação, confirmações e lacunas | Previsibilidade para a clínica |
-| Status do atendimento (Agendado, Confirmado, Concluído) | Controle da agenda |
-
-Regra extra: consulta, vacina e cirurgia só podem ser marcadas com veterinários, e banho e tosa só com tosadores.
-
-## 5. Tecnologias
-HTML, CSS e JavaScript puro. Os dados são fictícios (arquivo `js/data.js`) e ficam salvos no `localStorage` do navegador. Não tem backend, banco de dados nem bibliotecas externas.
-
-## 6. Arquitetura e pastas
-O sistema é uma página só. O `data.js` tem os dados, o `app.js` desenha cada tela e controla os formulários e botões, e a navegação usa o `#` da URL.
-
+Como foi feito
+Usei só HTML, CSS e JavaScript, sem biblioteca nenhuma e sem backend. Os dados eu inventei e ficam no arquivo `js/data.js`. Quando o usuário cadastra ou muda alguma coisa, o sistema salva no localStorage do navegador. É uma página só, e o menu troca de tela usando o `#` do endereço.
 ```
 petvida-clinica/
-├── index.html      # estrutura da página e menu
-├── css/style.css   # visual
-├── js/data.js      # dados de demonstração
-├── js/app.js       # telas e regras do sistema
-├── docs/           # prints das telas
+├── index.html      estrutura da página e menu
+├── css/style.css   visual
+├── js/data.js      dados de exemplo
+├── js/app.js       telas e regras do sistema
+├── docs/           prints das telas
 ├── .gitignore
 ├── LICENSE
 └── README.md
 ```
-
-## 7. Telas
-
-**Dashboard**
-![Dashboard](docs/dashboard.png)
-
-**Agenda** (a imagem mostra o aviso de conflito de horário)
-![Agenda](docs/agenda.png)
-
-**Tutores e Pets**
-![Tutores e Pets](docs/cadastros.png)
-
-**Prontuário**
-![Prontuário](docs/prontuario.png)
-
-**Lembretes**
-![Lembretes](docs/lembretes.png)
-
-**Equipe**
-![Equipe](docs/equipe.png)
-
-**Agenda no celular**
-
-<img src="docs/agenda-mobile.png" alt="Agenda no celular" width="260">
-
-## 8. Como executar
-Não precisa instalar nada. Escolha uma opção:
-
-1. Baixe ou clone o repositório e abra o arquivo `index.html` no navegador.
-2. Ou rode `python -m http.server 8000` na pasta e abra `http://localhost:8000`.
-3. Ou publique no GitHub Pages: Settings > Pages > Deploy from a branch > branch `main` e pasta `/ (root)`.
-
-O botão **Restaurar demo** (menu lateral) volta os dados para o início.
-
-## 9. Segurança
-O projeto não tem nenhuma senha, token ou chave de API, nem no código nem no histórico de commits. Todos os dados são fictícios. O texto digitado nos formulários é tratado antes de aparecer na tela, para não virar HTML. Em um sistema real seriam necessários login, backend e banco de dados com controle de acesso.
-
-## 10. Licença
-Código sob a licença [MIT](LICENSE).
+Como abrir
+Não precisa instalar nada. Basta baixar o projeto e abrir o `index.html` no navegador. Para publicar, vá em Settings, Pages, escolha "Deploy from a branch", branch `main` e pasta `/ (root)`. O botão "Restaurar demo" no menu volta os dados para o começo.
+Segurança
+O projeto não tem senha, token nem chave de API, nem no código nem nos commits, e todos os dados são inventados. O texto digitado nos formulários é tratado antes de aparecer na tela. Num sistema de verdade seria preciso ter login, banco de dados e controle de acesso.
+Licença
+Licença MIT, veja o arquivo LICENSE.
