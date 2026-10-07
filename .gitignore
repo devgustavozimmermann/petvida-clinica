@@ -1,0 +1,18 @@
+# Dependências e build (caso o projeto evolua para Node/Vite)
+node_modules/
+dist/
+build/
+.cache/
+npm-debug.log*
+
+# Variáveis de ambiente / credenciais
+.env
+.env.*
+*.pem
+
+# Sistema operacional e editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
